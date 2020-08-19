@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FooterPage {
@@ -68,79 +70,96 @@ public class FooterPage {
         PageFactory.initElements(driver, this);
     }
 
-    public String getTitle() {
+    public String getPageTitle() {
         return this.driver.getTitle();
     }
 
-    public boolean doesPageContainsText(String value) {
+    public boolean doesPageContainText(String value) {
         return this.driver.getPageSource().contains(value);
     }
 
-    public void clickCardanoFoundation() {
+    public void goToCardanoFoundationSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoFoundationLink));
         this.cardanoFoundationLink.click();
     }
 
-    public void clickDocumentation() {
+    public void goToDocumentationSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.documentationLink));
         this.documentationLink.click();
     }
 
-    public void clickCardanoSource() {
+    public void goToCardanoSourceSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoSourceLink));
         this.cardanoSourceLink.click();
     }
 
-    public void clickWhyCardano() {
+    public void goToWhyCardanoSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.whyCardanoLink));
         this.whyCardanoLink.click();
     }
 
-    public void clickOuroborosAlgorithm() {
+    public void goToOuroborosAlgorithmSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.ouroborosAlgorithmLink));
         this.ouroborosAlgorithmLink.click();
     }
 
-    public void clickCardanoCommunity() {
+    public void goToCardanoCommunitySite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoCommunityLink));
         this.cardanoCommunityLink.click();
     }
 
-    public void clickCardanoChat() {
+    public void goToCardanoChatSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoChatLink));
         this.cardanoChatLink.click();
     }
 
-    public void clickCardanoForum() {
+    public void goToCardanoForumSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoForumLink));
         this.cardanoForumLink.click();
     }
 
-    public void clickCardanoReddit() {
+    public void goToCardanoRedditSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoRedditLink));
         this.cardanoRedditLink.click();
     }
 
-    public void clickCardanoFoundationYoutube() {
+    public void goToCardanoFoundationYoutubeSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoFoundationYoutubeLink));
         this.cardanoFoundationYoutubeLink.click();
     }
 
-    public void clickCardanoFoundationTwitter() {
+    public void goToCardanoFoundationTwitterSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.cardanoFoundationTwitterLink));
         this.cardanoFoundationTwitterLink.click();
     }
 
-    public void clickOpenSource() {
+    public void goToOpenSourceSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.openSourceLink));
         this.openSourceLink.click();
     }
 
-    public void clickGithubIcon() {
+    public void goToCardanoExplorerAppGithubSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.githubIconLink));
         this.githubIconLink.click();
     }
 
-    public void clickTwitterIcon() {
+    public void goToIohkTwitterSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.twitterIconLink));
         this.twitterIconLink.click();
     }
 
-    public void clickFacebookIcon() {
+    public void goToIohkFacebookSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.facebookIconLink));
         this.facebookIconLink.click();
     }
 
-    public void clickYoutubeIcon() {
+    public void goToIohkYoutubeSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.youtubeIconLink));
         this.youtubeIconLink.click();
     }
 
-    public void clickNewsLetterIcon() {
+    public void goToNewsLetterSite() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.newsletterIconLink));
         this.newsletterIconLink.click();
     }
 }

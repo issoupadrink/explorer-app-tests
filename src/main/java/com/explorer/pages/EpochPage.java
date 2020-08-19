@@ -45,27 +45,33 @@ public class EpochPage {
     }
 
     public void setSearchBoxText(String value) {
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchTextBox));
         this.searchTextBox.clear();
         this.searchTextBox.sendKeys(value);
     }
 
     public void clickSearchButton(String value) {
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchTextBox));
         this.searchButton.click();
     }
 
     public void clickLeftPagination() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.paginationLeft));
         this.paginationLeft.click();
     }
 
     public void clickRightPagination() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.paginationRight));
         this.paginationRight.click();
     }
 
     public void clickFirstPagePagination() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.paginationFirstPage));
         this.paginationFirstPage.click();
     }
 
     public void clickLastPagePagination() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.paginationLastPage));
         this.paginationLastPage.click();
     }
 }

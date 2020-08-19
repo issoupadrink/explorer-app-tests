@@ -40,27 +40,32 @@ public class HomePage {
     }
 
     public void setSearchBoxText(String value) {
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchTextBox));
         this.searchTextBox.clear();
         this.searchTextBox.sendKeys(value);
     }
 
     public void clickSearchButton(String value) {
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchButton));
         this.searchButton.click();
     }
 
     public void goToLatestEpoch() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.latestEpochIcon));
         this.latestEpochIcon.click();
         this.wait.until(ExpectedConditions.textToBePresentInElement(
                 driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Epoch Summary"));
     }
 
     public void showMoreEpochs() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.showMoreEpochs));
         this.showMoreEpochs.click();
         this.wait.until(ExpectedConditions.textToBePresentInElement(
                 driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Browse Epochs"));
     }
 
     public void showMoreBlocks() {
+        this.wait.until(ExpectedConditions.visibilityOf(this.showMoreBlocks));
         this.showMoreBlocks.click();
         this.wait.until(ExpectedConditions.textToBePresentInElement(
                 driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Browse Blocks"));
