@@ -1,26 +1,11 @@
 package com.explorer.tests;
 
-import com.explorer.pages.FooterPage;
-import com.explorer.pages.HomePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import tests.BaseTest;
 
-public class FooterLinksTest {
-
-    private WebDriver driver;
-
-    private HomePage homePage;
-    private FooterPage footerPage;
-
-    @BeforeTest
-    public void setupDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\hey\\Downloads\\chromedriver\\chromedriver.exe");
-        this.driver = new ChromeDriver();
-        this.homePage = new HomePage(driver);
-        this.footerPage = new FooterPage(driver);
-    }
+public class FooterLinksTest extends BaseTest {
 
     @Test
     @Parameters("expectedCardanoFoundationTitle")
@@ -156,10 +141,5 @@ public class FooterLinksTest {
         homePage.goTo();
         footerPage.goToNewsLetterSite();
         Assert.assertTrue(driver.getPageSource().contains(expectedNewsLetterText));
-    }
-
-    @AfterTest
-    public void closeDriver() {
-        this.driver.quit();
     }
 }
