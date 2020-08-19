@@ -1,3 +1,4 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="footer-page">
     <test name="validate-footer-links">
@@ -18,7 +19,6 @@
         <parameter name="expectedIohkYoutubeText" value="IOHK" />
         <parameter name="expectedNewsLetterText" value="Search blog" />
         <parameter name="expectedIohkTwitterUrl" value="https://twitter.com/inputoutputHK" />
-
         <classes>
             <class name="com.explorer.tests.FooterLinksTest" />
         </classes>
