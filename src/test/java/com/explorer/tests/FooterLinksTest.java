@@ -4,7 +4,6 @@ import com.explorer.pages.FooterPage;
 import com.explorer.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -15,6 +14,26 @@ public class FooterLinksTest {
     private HomePage homePage;
     private FooterPage footerPage;
 
+    private String expectedCardanoFoundationTitle;
+    private String expectedCardanoSourceCodeTitle;
+    private String expectedWhyCardanoTitle;
+    private String expectedOuroborosAlgorithmTitle;
+    private String expectedCardanoCommunityTitle;
+    private String expectedCardanoChatTitle;
+    private String expectedCardanoForumTitle;
+    private String expectedRedditTitle;
+    private String expectedCardanoFoundationYoutubeTitle;
+    private String expectedOpenSourceTitle;
+    private String expectedCardanoAppGithubTitle;
+
+    private String expectedDocumentationText;
+    private String expectedCardanoFoundationTwitterText;
+    private String expectedIohkFacebookText;
+    private String expectedIohkYoutubeText;
+    private String expectedNewsLetterText;
+
+    private String expectedIohkTwitterUrl;
+
     @BeforeTest
     public void setupDriver() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\hey\\Downloads\\chromedriver\\chromedriver.exe");
@@ -24,131 +43,177 @@ public class FooterLinksTest {
     }
 
     @Test
-    public void cardanoFoundationLinkTest() {
+    @Parameters("expectedCardanoFoundationTitle")
+    public void cardanoFoundationLinkTest(String expectedCardanoFoundationTitle) {
+        this.expectedCardanoFoundationTitle = expectedCardanoFoundationTitle;
         homePage.goTo();
         footerPage.goToCardanoFoundationSite();
-        Assert.assertEquals(driver.getTitle(), "Cardano Foundation | Home");
+        // Assert.assertEquals(driver.getTitle(), "Cardano Foundation | Home");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoFoundationTitle);
     }
 
     @Test
-    public void documentationLinkTest() {
+    @Parameters("expectedDocumentationText")
+    public void documentationLinkTest(String expectedDocumentationText) {
+        this.expectedDocumentationText = expectedDocumentationText;
         homePage.goTo();
         footerPage.goToDocumentationSite();
-        Assert.assertTrue(driver.getPageSource().contains("Cardano Documentation"));
+        // Assert.assertTrue(driver.getPageSource().contains("Cardano Documentation"));
+        Assert.assertTrue(driver.getPageSource().contains(expectedDocumentationText));
     }
 
     @Test
-    public void cardanoSourceCodeLinkTest() {
+    @Parameters("expectedCardanoSourceCodeTitle")
+    public void cardanoSourceCodeLinkTest(String expectedCardanoSourceCodeTitle) {
+        this.expectedCardanoSourceCodeTitle = expectedCardanoSourceCodeTitle;
         homePage.goTo();
         footerPage.goToCardanoSourceSite();
-        Assert.assertEquals(driver.getTitle(), "Input Output · GitHub");
+        // Assert.assertEquals(driver.getTitle(), "Input Output · GitHub");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoSourceCodeTitle);
     }
 
     @Test
-    public void whyCardanoLinkTest() {
+    @Parameters("expectedWhyCardanoTitle")
+    public void whyCardanoLinkTest(String expectedWhyCardanoTitle) {
+        this.expectedWhyCardanoTitle = expectedWhyCardanoTitle;
         homePage.goTo();
         footerPage.goToWhyCardanoSite();
-        Assert.assertEquals(driver.getTitle(), "Why we are building Cardano - Introduction");
+        // Assert.assertEquals(driver.getTitle(), "Why we are building Cardano - Introduction");
+        Assert.assertEquals(driver.getTitle(), expectedWhyCardanoTitle);
     }
 
     @Test
-    public void ouroborosAlgorithmLinkTest() {
+    @Parameters("expectedOuroborosAlgorithmTitle")
+    public void ouroborosAlgorithmLinkTest(String expectedOuroborosAlgorithmTitle) {
+        this.expectedOuroborosAlgorithmTitle = expectedOuroborosAlgorithmTitle;
         homePage.goTo();
         footerPage.goToOuroborosAlgorithmSite();
-        Assert.assertEquals(driver.getTitle(), "Cardano | Ouroboros");
+        // Assert.assertEquals(driver.getTitle(), "Cardano | Ouroboros");
+        Assert.assertEquals(driver.getTitle(), expectedOuroborosAlgorithmTitle);
     }
 
     @Test
-    public void cardanoCommunityLinkTest() {
+    @Parameters("expectedCardanoCommunityTitle")
+    public void cardanoCommunityLinkTest(String expectedCardanoCommunityTitle) {
+        this.expectedCardanoCommunityTitle = expectedCardanoCommunityTitle;
         homePage.goTo();
         footerPage.goToCardanoCommunitySite();
-        Assert.assertEquals(driver.getTitle(), "Cardano | Home");
+        // Assert.assertEquals(driver.getTitle(), "Cardano | Home");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoCommunityTitle);
     }
 
     @Test
-    public void cardanoChatLinkTest() {
+    @Parameters("expectedCardanoChatTitle")
+    public void cardanoChatLinkTest(String expectedCardanoChatTitle) {
+        this.expectedCardanoChatTitle = expectedCardanoChatTitle;
         homePage.goTo();
         footerPage.goToCardanoChatSite();
-        Assert.assertEquals(driver.getTitle(), "Telegram: Contact @CardanoAnnouncements");
+        // Assert.assertEquals(driver.getTitle(), "Telegram: Contact @CardanoAnnouncements");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoChatTitle);
     }
 
     @Test
-    public void cardanoForumLinkTest() {
+    @Parameters("expectedCardanoForumTitle")
+    public void cardanoForumLinkTest(String expectedCardanoForumTitle) {
+        this.expectedCardanoForumTitle = expectedCardanoForumTitle;
         homePage.goTo();
         footerPage.goToCardanoForumSite();
-        Assert.assertEquals(driver.getTitle(), "Cardano Forum");
+        // Assert.assertEquals(driver.getTitle(), "Cardano Forum");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoForumTitle);
     }
 
     @Test
-    public void cardanoRedditLinkTest() {
+    @Parameters("expectedRedditTitle")
+    public void cardanoRedditLinkTest(String expectedRedditTitle) {
+        this.expectedRedditTitle = expectedRedditTitle;
         homePage.goTo();
         footerPage.goToCardanoRedditSite();
-        Assert.assertEquals(driver.getTitle(), "The home of Cardano");
+        // Assert.assertEquals(driver.getTitle(), "The home of Cardano");
+        Assert.assertEquals(driver.getTitle(), expectedRedditTitle);
     }
 
     @Test
-    public void cardanoFoundationYoutubeLinkTest() {
+    @Parameters("expectedCardanoFoundationYoutubeTitle")
+    public void cardanoFoundationYoutubeLinkTest(String expectedCardanoFoundationYoutubeTitle) {
+        this.expectedCardanoFoundationYoutubeTitle = expectedCardanoFoundationYoutubeTitle;
         homePage.goTo();
         footerPage.goToCardanoFoundationYoutubeSite();
-        Assert.assertEquals(driver.getTitle(), "Cardano Foundation - YouTube");
+        // Assert.assertEquals(driver.getTitle(), "Cardano Foundation - YouTube");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoFoundationYoutubeTitle);
     }
 
     @Test
-    public void cardanoFoundationTwitterLinkTest() {
+    @Parameters("expectedCardanoFoundationTwitterText")
+    public void cardanoFoundationTwitterLinkTest(String expectedCardanoFoundationTwitterText) {
+        this.expectedCardanoFoundationTwitterText = expectedCardanoFoundationTwitterText;
         homePage.goTo();
         footerPage.goToCardanoFoundationTwitterSite();
-        Assert.assertTrue(driver.getPageSource().contains("Cardano Foundation"));
-        Assert.assertTrue(driver.getPageSource().contains("Search Twitter"));
+        // Assert.assertTrue(driver.getPageSource().contains("Cardano Foundation"));
+        Assert.assertTrue(driver.getPageSource().contains(expectedCardanoFoundationTwitterText));
     }
 
     @Test
-    public void openSourceLinkTest() {
+    @Parameters("expectedOpenSourceTitle")
+    public void openSourceLinkTest(String expectedOpenSourceTitle) {
+        this.expectedOpenSourceTitle = expectedOpenSourceTitle;
         homePage.goTo();
         footerPage.goToOpenSourceSite();
-        Assert.assertEquals(driver.getTitle(), "Input Output · GitHub");
-        Assert.assertTrue(driver.getPageSource().contains("Pinned repositories"));
+        // Assert.assertEquals(driver.getTitle(), "Input Output · GitHub");
+        Assert.assertEquals(driver.getTitle(), expectedOpenSourceTitle);
     }
 
     @Test
-    public void cardanoExplorerAppGithubLinkTest() {
+    @Parameters("expectedCardanoAppGithubTitle")
+    public void cardanoExplorerAppGithubLinkTest(String expectedCardanoAppGithubTitle) {
+        this.expectedCardanoAppGithubTitle = expectedCardanoAppGithubTitle;
         homePage.goTo();
         footerPage.goToCardanoExplorerAppGithubSite();
-        Assert.assertEquals(driver.getTitle(), "GitHub - input-output-hk/cardano-explorer-app: Cardano Explorer App");
-        Assert.assertTrue(driver.getPageSource().contains("Cardano Explorer App"));
+        // Assert.assertEquals(driver.getTitle(), "GitHub - input-output-hk/cardano-explorer-app: Cardano Explorer App");
+        Assert.assertEquals(driver.getTitle(), expectedCardanoAppGithubTitle);
     }
 
     @Test
-    public void iohkTwitterIconLinkTest() {
+    @Parameters("expectedIohkTwitterUrl")
+    public void iohkTwitterIconLinkTest(String expectedIohkTwitterUrl) {
+        this.expectedIohkTwitterUrl = expectedIohkTwitterUrl;
         homePage.goTo();
         footerPage.goToIohkTwitterSite();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://twitter.com/inputoutputHK");
+        // Assert.assertEquals(driver.getCurrentUrl(),"https://twitter.com/inputoutputHK");
+        Assert.assertEquals(driver.getCurrentUrl(),expectedIohkTwitterUrl);
     }
 
     @Test
-    public void iohkFacebookIconLinkTest() {
+    @Parameters("expectedIohkFacebookText")
+    public void iohkFacebookIconLinkTest(String expectedIohkFacebookText) {
+        this.expectedIohkFacebookText = expectedIohkFacebookText;
         homePage.goTo();
         footerPage.goToIohkFacebookSite();
-        Assert.assertTrue(driver.getPageSource().contains("Input Output"));
+        // Assert.assertTrue(driver.getPageSource().contains("Input Output"));
+        Assert.assertTrue(driver.getPageSource().contains(expectedIohkFacebookText));
     }
 
     @Test
-    public void iohkYoutubeIconLinkTest() {
+    @Parameters("expectedIohkYoutubeText")
+    public void iohkYoutubeIconLinkTest(String expectedIohkYoutubeText) {
+        this.expectedIohkYoutubeText = expectedIohkYoutubeText;
         homePage.goTo();
         footerPage.goToIohkYoutubeSite();
-        Assert.assertTrue(driver.getPageSource().contains("IOHK"));
-        Assert.assertTrue(driver.getPageSource().contains("subscribers"));
+        // Assert.assertTrue(driver.getPageSource().contains("IOHK"));
+        Assert.assertTrue(driver.getPageSource().contains(expectedIohkYoutubeText));
     }
 
     @Test
-    public void newsLetterIconLinkTest() {
+    @Parameters("expectedNewsLetterText")
+    public void newsLetterIconLinkTest(String expectedNewsLetterText) {
+        this.expectedNewsLetterText = expectedNewsLetterText;
         homePage.goTo();
         footerPage.goToNewsLetterSite();
-        Assert.assertTrue(driver.getPageSource().contains("Search blog"));
-        Assert.assertTrue(driver.getPageSource().contains("Recent posts"));
+        // Assert.assertTrue(driver.getPageSource().contains("Search blog"));
+        Assert.assertTrue(driver.getPageSource().contains(expectedNewsLetterText));
     }
 
     @AfterTest
     public void closeDriver() {
-        this.driver.close();
+        this.driver.quit();
     }
 }

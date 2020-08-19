@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="footer-page">
+    <test name="validate-footer-links">
+        <parameter name="expectedCardanoFoundationTitle" value="Cardano Foundation | Home" />
+        <parameter name="expectedCardanoSourceCodeTitle" value="Input Output · GitHub" />
+        <parameter name="expectedWhyCardanoTitle" value="Why we are building Cardano - Introduction" />
+        <parameter name="expectedOuroborosAlgorithmTitle" value="Cardano | Ouroboros" />
+        <parameter name="expectedCardanoCommunityTitle" value="Cardano | Home" />
+        <parameter name="expectedCardanoChatTitle" value="Telegram: Contact @CardanoAnnouncements" />
+        <parameter name="expectedCardanoForumTitle" value="Cardano Forum" />
+        <parameter name="expectedRedditTitle" value="The home of Cardano" />
+        <parameter name="expectedCardanoFoundationYoutubeTitle" value="Cardano Foundation - YouTube" />
+        <parameter name="expectedOpenSourceTitle" value="Input Output · GitHub" />
+        <parameter name="expectedCardanoAppGithubTitle" value="GitHub - input-output-hk/cardano-explorer-app: Cardano Explorer App" />
+        <parameter name="expectedDocumentationText" value="Cardano Documentation" />
+        <parameter name="expectedCardanoFoundationTwitterText" value="Cardano Foundation" />
+        <parameter name="expectedIohkFacebookText" value="Input Output" />
+        <parameter name="expectedIohkYoutubeText" value="IOHK" />
+        <parameter name="expectedNewsLetterText" value="Search blog" />
+        <parameter name="expectedIohkTwitterUrl" value="https://twitter.com/inputoutputHK" />
+
+        <classes>
+            <class name="com.explorer.tests.FooterLinksTest" />
+        </classes>
+    </test>
+</suite>
