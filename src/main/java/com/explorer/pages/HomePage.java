@@ -44,6 +44,10 @@ public class HomePage {
         this.searchTextBox.sendKeys(value);
     }
 
+    public void clickSearchButton(String value) {
+        this.searchButton.click();
+    }
+
     public void goToLatestEpoch() {
         this.latestEpochIcon.click();
         this.wait.until(ExpectedConditions.textToBePresentInElement(
