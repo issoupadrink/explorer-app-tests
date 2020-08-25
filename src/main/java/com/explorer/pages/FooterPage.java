@@ -7,10 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class FooterPage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     @FindBy(linkText = "Cardano Foundation")
     private WebElement cardanoFoundationLink;
@@ -65,7 +66,7 @@ public class FooterPage {
 
     public FooterPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 30);
+        this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
 

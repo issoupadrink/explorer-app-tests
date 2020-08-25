@@ -1,10 +1,9 @@
-package tests;
+package com.explorer.tests;
 
 import com.explorer.pages.EpochPage;
 import com.explorer.pages.FooterPage;
-import com.explorer.pages.HomePage;
+import com.explorer.pages.MainPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
@@ -13,11 +12,12 @@ import org.testng.annotations.BeforeTest;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class BaseTest {
 
     protected WebDriver driver;
 
-    protected HomePage homePage;
+    protected MainPage homePage;
     protected FooterPage footerPage;
     protected EpochPage epochPage;
 
@@ -40,7 +40,7 @@ public class BaseTest {
         this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
 
         // Create Page Objects
-        this.homePage = new HomePage(driver);
+        this.homePage = new MainPage(driver);
         this.footerPage = new FooterPage(driver);
         this.epochPage = new EpochPage(driver);
     }

@@ -1,9 +1,10 @@
-package com.explorer.tests;
+package com.explorer.tests.functional;
 
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import tests.BaseTest;
+import com.explorer.tests.BaseTest;
+
 
 public class FooterLinksTest extends BaseTest {
 

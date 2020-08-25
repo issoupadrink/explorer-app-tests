@@ -1,6 +1,5 @@
 package com.explorer.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,10 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class MainPage {
+
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
     @FindBy(className = "SimpleInput_input__1OLje")
     private WebElement searchTextBox;
@@ -28,9 +28,9 @@ public class HomePage {
     @FindBy(className = "CircularProgress_insideCircle__2bJ_q")
     private WebElement latestEpochIcon;
 
-    public HomePage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 30);
+        this.wait = new WebDriverWait(driver, 60);
         PageFactory.initElements(driver, this);
     }
 
@@ -43,31 +43,12 @@ public class HomePage {
         this.wait.until(ExpectedConditions.visibilityOf(this.searchTextBox));
         this.searchTextBox.clear();
         this.searchTextBox.sendKeys(value);
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchButton));
     }
 
-    public void clickSearchButton(String value) {
+    public void clickSearchButton() {
         this.wait.until(ExpectedConditions.visibilityOf(this.searchButton));
         this.searchButton.click();
-    }
-
-    public void goToLatestEpoch() {
-        this.wait.until(ExpectedConditions.visibilityOf(this.latestEpochIcon));
-        this.latestEpochIcon.click();
-        this.wait.until(ExpectedConditions.textToBePresentInElement(
-                driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Epoch Summary"));
-    }
-
-    public void showMoreEpochs() {
-        this.wait.until(ExpectedConditions.visibilityOf(this.showMoreEpochs));
-        this.showMoreEpochs.click();
-        this.wait.until(ExpectedConditions.textToBePresentInElement(
-                driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Browse Epochs"));
-    }
-
-    public void showMoreBlocks() {
-        this.wait.until(ExpectedConditions.visibilityOf(this.showMoreBlocks));
-        this.showMoreBlocks.click();
-        this.wait.until(ExpectedConditions.textToBePresentInElement(
-                driver.findElement(By.className("DividerWithTitle_title__3SVyG")),"Browse Blocks"));
+        this.wait.until(ExpectedConditions.visibilityOf(this.searchButton));
     }
 }
